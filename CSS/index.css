@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+html body {
+    width:100%;
+    height: auto; /* Ocupa el 100% de la altura de la ventana */
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* PRIMER SEGMENTO */
+.segmento1{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el área sin deformarse */
+    z-index: -10; /* Envía el video detrás del contenido principal */
+}
+
+/* Header */
+
+header{
+    position: relative;
+    padding: 0 1rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Archivo", sans-serif;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 1rem;
+}
+
+.toggle_btn{
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* Dropdown menu */
+.dropdown_menu{
+    display: none;
+    position:absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width:300px;
+    background:rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown_menu.open{
+    height: 200px;
+    
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos generales de los elementos de lista */
+li {
+    list-style: none;
+    font-family: "Archivo", sans-serif;
+    transition: transform 0.3s ease; /* Agregamos transición suave para el zoom */
+}
+
+/* Estilos de los enlaces */
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+    padding: 0 10px;
+}
+
+/* Animación de zoom al pasar el ratón sobre los elementos de la lista */
+li:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al 110% */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+}
+
+
+/* Mensaje de Bienvenida */
+
+.bienvenida{
+    width: 100%;
+    height: auto;
+    margin-top: 11%;
+}
+
+.bienvenida h1{
+    color: white;
+    font-family: "Archivo", sans-serif;
+    font-size:600%;
+}
+
+#rojo{
+    color: #BE1622;
+    font-family: "Archivo", sans-serif;
+    font-size:200%;
+}
+
+#blanco{
+    color: #ffffff;
+    font-family: "Archivo", sans-serif;
+    font-size:200%;
+}
+
+.bienvenida .animate__fadeInDown {
+    --animate-duration: 4s; /* Duración de 4 segundos */
+}
+
+.logo-index{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    left: 10%;
+    top: 75%;
+}
+
+.logo-index img{
+    width: 100%;
+    height: auto;
+}
+
+.logo-index .animate__fadeInDown {
+    --animate-duration: 4s; /* Duración de 4 segundos */
+}
+
+
+
+/* SEGMENTO3 */
+.segmento3 {
+
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(140deg, rgb(31, 31, 31) 50%, rgb(126, 12, 12) 50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* Alinea contenido a la derecha */
+    align-items: center; /* Centra verticalmente otros elementos */
+    position: relative; /* Necesario para posicionamiento absoluto interno */
+}
+
+.segmento3 .rojo {
+    position: relative;
+    width: 50%; /* Ancho del bloque de imagen */
+    height: auto; /* La altura se ajusta automáticamente según la imagen */
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 140%;
+    text-align: center;
+}
+
+.segmento3 .rojo span {
+    color: #ffffff;
+    font-size: 150%;
+    font-family: "Archivo", sans-serif;
+}
+
+#gris {
+    color: #ffffff;
+    font-size: 150%;
+    font-family: "Archivo", sans-serif;
+}
+
+.segmento3 .rojo img {
+    width: 40%;
+    height: auto; /* Mantiene la proporción original de la imagen */
+}
+
+.segmento3 .negro {
+    position: relative;
+    width: 50%;
+    height: auto;
+    text-align: center;
+}
+
+.segmento3 .negro img {
+    width: 30%;
+    height: auto;
+}
+
+/* Estilo general del texto */
+.segmento3 .negro p {
+    font-size: 1.5rem; /* Tamaño ajustado para mayor claridad */
+    font-family: 'Montserrat', sans-serif;  /* Tipografía moderna y clara */
+    font-weight: 700;
+    color: #ffffff; /* Texto blanco para contraste en el fondo oscuro */
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    
+}
+
+.segmento3 .negro p::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, #ff005f, #fbe91c);  /* Borde colorido */
+    animation: borderAnimation 2s infinite alternate;
+}
+
+/* Animación de borde */
+@keyframes borderAnimation {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* SEGMENTO 4 */
+.segmento4 {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(136, 136, 136);
+}
+
+.contenedor-formulario {
+    width: 50%; /* Ocupa todo el ancho */
+    height: 100vh; /* Ocupa toda la altura */
+    display: flex; /* Activa el modelo flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Centra el texto internamente */
+    font-family: "Archivo", sans-serif;
+    background-color:rgb(65, 65, 65);
+    color: white;
+}
+
+.contenedor-formulario span{
+    color: #BE1622;
+}
+
+.contenedor-formulario h2{
+    color: white;
+    font-size: 400%;
+}
+
+.contenedor-formulario p{
+    font-size: 130%;
+    margin: -15px;
+    padding-bottom: 5%;
+}
+/* Estilo general para los enlaces en .info */
+.segmento4 .contenedor-formulario .tabla-grid .info a {
+    display: inline-block; /* Necesario para que transform funcione */
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del texto */
+    transition: transform 0.5s ease; /* Duración de la transición */
+}
+
+/* Hover para los enlaces */
+.segmento4 .contenedor-formulario .tabla-grid .info a:hover {
+    transform: scale(1.1); /* Escala el enlace al pasar el cursor */
+}
+
+
+.tabla-grid {
+    display: grid; /* Usa CSS Grid para los ítems */
+    grid-template-columns: 50px 1fr; /* Dos columnas: una para iconos y otra para la información */
+    gap: 20px; /* Espaciado entre las filas y columnas */
+    width: 50%; /* Ocupa solo la mitad del ancho del contenedor */
+    margin: 0 auto; /* Centra horizontalmente el contenido de la tabla */
+}
+
+.tabla-grid .icono img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}  
+
+@media (max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+
+
+.tabla-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr; /* Dos columnas, la primera con 50px para los iconos y la segunda para el contenido */
+    gap: 20px; /* Espacio entre las columnas */
+    align-items: center; /* Alineación vertical de los elementos */
+}
+
+.icono img {
+    width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+    height: auto;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.info p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Estilos para el contenedor general */
+.formulario {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: left;
+    font-family: "Arial", sans-serif;
+    color: #333;
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+}
+
+/* Estilos para el encabezado y texto */
+.formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #BE1622;
+}
+
+.formulario h2 span {
+    color: #BE1622;
+    font-weight: bold;
+}
+
+.formulario p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Estilos para los grupos de formulario */
+.formulario .form-group {
+    margin-bottom: 20px;
+}
+
+.formulario .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.formulario .form-group input,
+.formulario .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.formulario .form-group input:focus,
+.formulario .form-group textarea:focus {
+    outline: none;
+    border-color: #BE1622;
+    box-shadow: 0 0 5px rgba(190, 22, 34, 0.5);
+}
+
+/* Estilo para el botón de enviar */
+.formulario .btn-enviar {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #BE1622;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario .btn-enviar:hover {
+    background-color: #a1131e;
+}
+
+
+
+/* Estilos generales para el footer */
+.footer {
+    width: 100%;
+    background-color: #333; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding-top:20px ;
+    padding-bottom:20px ;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Estilos para el contenido del footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar contenido */
+}
+
+/* Estilo para el texto destacado */
+.footer-content strong {
+    color: #BE1622; /* Color destacado */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Estilo responsivo */
+/* PRIMER SEGMENTO */
+@media (max-width: 700px) {
+    html, body {
+        overflow-x: hidden; /* Reafirma que no debe haber desplazamiento horizontal */
+    }
+    
+    .video-background{
+        position: absolute;
+    }
+    .formulario {
+        padding: 20px;
+    }
+
+    .formulario h2 {
+        font-size: 20px;
+    }
+
+    .formulario p {
+        font-size: 12px;
+    }
+
+    .dropdown_menu{
+        background-color: #9E1A1A;
+    }
+
+    .dropdown_menu li{
+        background-color: #9E1A1A;
+        border-radius: 0%;
+    }
+
+    .bienvenida{
+        padding-left: 7%;
+        position: absolute;
+        top: 35%;
+        display: flex;
+    }
+    .bienvenida h1{
+        font-size: 200%;
+        height: auto;
+    }
+
+    #rojo{
+    font-size: 120%;
+    }
+
+    #blanco{
+        font-size: 120%;
+    }
+
+    .logo-index{
+        width: 50px;
+        position: absolute;
+        top: 41%;
+        left: 60%;
+    }
+
+    .logo-index img{
+        width: 100%;
+        height: auto;
+    }
+
+    /* SEGMENTO3 */
+    .segmento3{
+        width: 100%;
+        height: auto;
+        background: #6d6d6d;
+    }
+
+    .segmento3 .negro{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .segmento3 .negro p{
+        text-align:center;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 15px;
+        color: #ffffff;
+    }
+
+    .segmento3 .rojo{
+        display: none;
+    }
+    .segmento4 .contenedor-formulario{
+        width: 100%;
+    }
+
+    .segmento4 .contenedor-formulario p{
+        font-size: 100%;
+        margin: 0;
+    }
+
+    .segmento4 .contenedor-formulario .formulario{
+        display: none;
+    }
+
+    .segmento4 .contenedor-formulario .tabla-grid{
+        width: 100%;
+        padding-left: 20%;
+        font-size: 70%;
+        text-align: left;
+    }
+
+    footer p{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}

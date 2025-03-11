@@ -1,0 +1,426 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    height: auto;
+    overflow-x: hidden; /* Oculta cualquier contenido desbordado horizontalmente */
+    background: linear-gradient(to top, #491212, #434343);
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total */
+}
+
+
+header{
+    position: relative;
+    padding: 0 1rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Archivo", sans-serif;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 1rem;
+}
+
+.toggle_btn{
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* Dropdown menu */
+.dropdown_menu{
+    display: none;
+    position:absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width:300px;
+    background:rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dropdown_menu.open{
+    height: 200px;
+    
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos generales de los elementos de lista */
+#nav-style {
+    list-style: none;
+    font-family: "Archivo", sans-serif;
+    transition: transform 0.3s ease; /* Agregamos transición suave para el zoom */
+}
+
+/* Estilos de los enlaces */
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+    padding: 0 10px;
+}
+
+
+/* Estilo base del menú lateral */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 18%;
+    background: #333;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.menu-lista {
+    margin-bottom: 5%;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    margin-top: 20px; /* Espacio extra entre los iconos y la lista */
+    position: absolute;
+}
+
+.menu-lista li {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #444;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin: 10%;
+
+}
+
+#item-municipio{
+    margin-top: -30px;
+}
+
+/* Centrar la imagen dentro de la lista */
+.menu-lista img {
+    width: 50px;
+    height: auto;
+    display: block;
+    padding-top: 20%;
+    margin: 0 auto; /* Esto centra la imagen horizontalmente */
+    align-self: center; /* Esto la centra verticalmente dentro de su contenedor */
+}
+
+
+/* Estilo para las etiquetas de formulario */
+#item-quiero label, #item-busco label, #item-municipio label, #item-presupuesto label {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Estilos de los campos select */
+#opciones-quiero, #opciones-busco, #opciones-municipio {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Estilos del control range */
+#presupuesto-range {
+    width: 100%;
+    margin-top: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Estilo para el valor del rango */
+#presupuesto-valor {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+/* Estilo para el botón de submit */
+#btn-buscar {
+    padding: 10px 20px;
+    background-color: #BE1622;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+#btn-buscar:hover {
+    background-color: #ffffff;
+    color: #BE1622;
+}
+
+#cerrar{
+    display: none;
+}
+
+.contenedor-casas {
+    padding-left: 18%;
+    margin-left: 4%; /* Ajustamos este valor para que no desborde */
+    padding-right: 5%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 3%;
+    width: calc(100% - 80px); /* Ajustamos el ancho dinámicamente */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+
+.grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 70px;
+    gap: 70px;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #fff;
+    height: 490px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.precio h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #555555;
+    font-family: "Archivo", sans-serif;
+}
+
+.precio{
+    height: auto;
+    width: auto;
+}
+.precio h3 {
+    font-size: 15px;
+    margin: 15px 0;
+    color: #811818;
+    font-family: "Archivo", sans-serif;
+}
+
+.iconos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Asegura que los iconos estén distribuidos horizontalmente */
+}
+
+.icono-item {
+    text-align: center;
+}
+
+.icono-item img {
+    width: 25px;
+    height: 25px;
+}
+
+.icono-item p {
+    font-family: "Archivo", sans-serif;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+.contenedor-casas{
+    width: 100%;
+    height: auto;
+}
+
+.contenedor-casas h1{
+    font-family: "Archivo", sans-serif;
+    font-size: 200%;
+    text-align: left;
+    color: white;
+    padding-left: 5%;
+}
+
+.pagination {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #811818;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #a33b3b;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+.footer {
+    position: absolute;
+    width: 100%;
+    background-color: #333; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding-top:20px ;
+    padding-bottom:20px ;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Estilos para el contenido del footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar contenido */
+}
+
+/* Estilo para el texto destacado */
+.footer-content strong {
+    color: #BE1622; /* Color destacado */
+}
+
+@media (max-width: 700px){
+    body {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: auto;
+        overflow-x: hidden; /* Oculta cualquier contenido desbordado horizontalmente */
+        box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total */
+    }
+
+
+    .navbar{
+        display: none;
+    }
+
+    .menu-lateral {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        top: 50%;
+        margin-top: 5%;
+    }
+    
+    .menu-lateral img {
+        display: none;
+    }
+
+    .contenedor-casas{
+        width: 100%;
+        height: auto;
+        margin-left: 0; /* Ajustamos este valor para que no desborde */
+        padding-right: 0;
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        box-sizing: border-box; /* Asegura que el padding*/
+    }
+
+    .contenedor-casas h1{
+        width: 100%;
+        overflow-x: hidden;
+        height: auto;
+        text-align: center;
+        padding-left: 0;
+        font-size: 25px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* Solo una columna en móvil */
+        row-gap: 20px; /* Ajusta el espacio vertical entre los elementos */
+        gap: 20px; /* Ajusta el espacio entre elementos */
+        padding: 10px;
+        z-index: 9;
+    }
+    
+    .grid-item:hover {
+        transform: none;
+    }
+
+    #item-municipio{
+        margin-top: -30px;
+    }
+
+    #cerrar{
+        display: block;
+        background-color: #BE1622;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .footer{
+        z-index: 9;
+    }
+}
